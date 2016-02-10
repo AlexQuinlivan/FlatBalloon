@@ -98,7 +98,7 @@
     if (!self.isViewLoaded) {
         return;
     }
-    CGRect const frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect const frame = [self.view convertRect:[notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue] toView:nil];
     ((HLMLayoutRootView *) self.view).keyboardFrame = frame;
     if (self.shouldAnimateKeyboardHeight && !((HLMLayoutRootView *) self.view).rootView.hlm_overridesKeyboardResizing) {
         [UIView animateWithDuration:0.3f animations:^{
