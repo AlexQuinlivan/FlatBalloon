@@ -11,5 +11,5 @@
 
 @interface HLMViewController : UIViewController
 @property (readonly) NSString* layoutResource;
-@property (readonly) BOOL shouldAnimateKeyboardHeight;
+@property (readonly) BOOL shouldAnimateKeyboardHeight; //Is this needed? Should it be readonly?
 @end

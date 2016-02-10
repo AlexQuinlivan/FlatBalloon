@@ -42,7 +42,7 @@
         BOOL const overridesKeyboardResizing = rootView.hlm_overridesKeyboardResizing;
         CGFloat const topGuideLength = self.topLayoutGuide.length;
         CGFloat const bottomGuideLength = self.bottomLayoutGuide.length;
-        CGFloat const keyboardFrameHeight = self.keyboardFrame.size.height;
+        CGFloat const keyboardFrameHeight = CGRectIsEmpty(self.keyboardFrame) ? : [UIScreen mainScreen].bounds.size.height - self.keyboardFrame.origin.y;
         CGFloat const previousPaddingTop = rootView.hlm_paddingTop;
         CGFloat const previousPaddingBottom = rootView.hlm_paddingBottom;
         if (!overridesLayoutGuides) {

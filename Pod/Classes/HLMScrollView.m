@@ -61,7 +61,7 @@
     if (view.hlm_orientation == HLMLayoutOrientationVertical) {
         uint32_t heightSize = [HLMLayout measureSpecSize:heightMeasureSpec];
         if (self.resizesForKeyboard) {
-            heightSize += self.keyboardFrame.size.height;
+            heightSize += CGRectIsEmpty(self.keyboardFrame) ? : [UIScreen mainScreen].bounds.size.height - self.keyboardFrame.origin.y;
         }
         HLMMeasureSpecMode heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
         [super measure:view
@@ -115,7 +115,7 @@
            bottom:bottom];
     CGSize contentSize = view.hlm_childView.bounds.size;
     if (self.resizesForKeyboard) {
-        contentSize.height += self.keyboardFrame.size.height;
+        contentSize.height += CGRectIsEmpty(self.keyboardFrame) ? : [UIScreen mainScreen].bounds.size.height - self.keyboardFrame.origin.y;
     }
     view.contentSize = contentSize;
 }
